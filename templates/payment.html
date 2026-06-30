@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fee Payment</title>
+</head>
+
+<body>
+
+<h1>Sumathi Reddy Institute of Technology for Women</h1>
+<h2>Online Fee Payment</h2>
+
+<form action="/pay" method="POST">
+
+<label>Name:</label><br>
+<input type="text" name="name" required><br><br>
+
+<label>Roll Number:</label><br>
+<input type="text" name="roll" required><br><br>
+
+<label>Branch:</label><br>
+<select name="branch">
+<option>CSE</option>
+<option>CSM</option>
+<option>CSC</option>
+<option>CSD</option>
+<option>ECE</option>
+</select><br><br>
+
+<label>Section:</label><br>
+<input type="text" name="section"><br><br>
+
+<label>Year:</label><br>
+<select name="year">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select><br><br>
+
+<label>Fee Type:</label><br>
+<select name="fee_type">
+<option>Tuition</option>
+<option>Bus</option>
+<option>Library</option>
+<option>Hostel</option>
+</select><br><br>
+
+<label>Amount:</label><br>
+<input type="number" name="amount" required><br><br>
+
+<button type="submit">Pay Now</button>
+
+</form>
+
+</body>
+</html>

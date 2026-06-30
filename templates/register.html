@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Student Registration</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+}
+
+.box{
+width:400px;
+margin:auto;
+margin-top:80px;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px #ccc;
+text-align:center;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:8px;
+}
+
+button{
+padding:10px 20px;
+background:#0066cc;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Student Registration</h2>
+
+<form method="POST">
+
+<input type="text" name="roll" placeholder="Hall Ticket Number" required>
+
+<input type="text" name="name" placeholder="Student Name" required>
+
+<input type="text" name="branch" placeholder="Branch" required>
+
+<input type="text" name="section" placeholder="Section" required>
+
+<input type="text" name="year" placeholder="Year" required>
+
+Hostel:
+<select name="hostel">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+</select>
+
+<br><br>
+
+Bus:
+<select name="bus">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+</select>
+
+<br><br>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<br>
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

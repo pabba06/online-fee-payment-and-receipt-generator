@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:40px;
+}
+
+table{
+border-collapse:collapse;
+width:900px;
+}
+
+th,td{
+border:1px solid black;
+padding:8px;
+text-align:center;
+}
+
+button{
+padding:8px 15px;
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Student Dashboard</h2>
+
+<h3>Fee Structure</h3>
+
+<table>
+
+{% if due_fee > 0 %}
+    <h3 style="color:red;">
+        ⚠️ You have ₹{{due_fee}} pending. Please pay soon.
+    </h3>
+{% else %}
+    <h3 style="color:green;">
+        ✅ All fees are cleared.
+    </h3>
+{% endif %}
+
+<tr>
+<th>Fee Type</th>
+<th>Total Amount</th>
+<th>Paid Amount</th>
+<th>Pending</th>
+<th>Status</th>
+</tr>
+
+{% for f in fees %}
+
+<tr>
+
+<td>{{f[0]}}</td>
+
+<td>{{f[1]}}</td>
+
+<td>{{f[2]}}</td>
+
+<td>{{f[1] - f[2]}}</td>
+
+<td>
+{% if f[1] - f[2] == 0 %}
+    <span style="color:green;">Paid</span>
+{% else %}
+     <span style="color:red;">Pending</span>
+{% endif %}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+<h2>Fee Summary</h2>
+
+<p>Total Fee: ₹{{ total_fee }}</p>
+<p>Paid: ₹{{ paid_fee }}</p>
+<p>Due: ₹{{ due_fee }}</p>
+<h3>Pay Fee</h3>
+
+<form method="POST" action="/pay">
+
+<label>Fee Type</label>
+<select name="fee_type">
+
+{% for fee in fees %}
+<option value="{{ fee[0] }}">{{ fee[0] }}</option>
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<label>Amount</label>
+<input type="number" name="amount" required>
+
+<br><br>
+
+<button type="submit">Pay Fee</button>
+
+</form>
+
+<br><br>
+
+<a href="/view_history">
+<button>View Payment History</button>
+</a>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>

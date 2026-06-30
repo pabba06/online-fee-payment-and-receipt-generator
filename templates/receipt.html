@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Fee Payment Receipt</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+}
+
+.box{
+width:500px;
+margin:auto;
+margin-top:40px;
+background:white;
+padding:30px;
+text-align:center;
+border-radius:10px;
+box-shadow:0 0 10px #ccc;
+}
+
+.success{
+color:green;
+font-weight:bold;
+margin-top:15px;
+}
+
+button{
+padding:10px 20px;
+background:#3cb371;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.no-print{
+display:block;
+}
+
+@media print{
+.no-print{
+display:none;
+}
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="box" id="receipt">
+
+<h1>ABC College of Engineering</h1>
+
+<h2>Fee Payment Receipt</h2>
+
+<p><b>Receipt No:</b> {{receipt_no}}</p>
+
+<p><b>Date & Time:</b> {{date}}</p>
+
+<hr>
+
+<p><b>Name:</b> {{name}}</p>
+
+<p><b>Roll Number:</b> {{roll}}</p>
+
+<p><b>Branch:</b> {{branch}}</p>
+
+<p><b>Section:</b> {{section}}</p>
+
+<p><b>Year:</b> {{year}}</p>
+
+<p><b>Fee Type:</b> {{fee_type}}</p>
+
+<p><b>Amount Paid:</b> ₹{{amount}}</p>
+
+<hr>
+
+<p class="success">Payment Successful</p>
+
+<button class="no-print" onclick="downloadReceipt()">
+Download Receipt
+</button>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+<script>
+
+function downloadReceipt(){
+
+var element = document.getElementById("receipt");
+
+// 🔥 hide button
+var button = document.querySelector("button");
+button.style.display = "none";
+
+// generate PDF
+html2pdf().from(element).save("Fee_Receipt.pdf").then(() => {
+
+    // 🔥 show button again after download
+    button.style.display = "block";
+
+});
+
+}
+</script>
+
+</body>
+
+</html>

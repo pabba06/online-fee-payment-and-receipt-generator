@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Login</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f4f6f9;
+}
+
+.container{
+    width:350px;
+    margin:auto;
+    margin-top:100px;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 0 10px #ccc;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#0066cc;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 align="center">Student Login</h2>
+
+<form method="POST">
+
+Hall Ticket Number
+<input type="text" name="roll" required>
+
+Password
+<input type="password" name="password" required>
+
+<a href="/forgot_password">Forgot Password?</a>
+
+<button type="submit">Login</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

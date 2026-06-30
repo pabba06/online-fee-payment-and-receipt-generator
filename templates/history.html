@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Payment History</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+}
+
+h2{
+text-align:center;
+}
+
+table{
+width:70%;
+margin:auto;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ccc;
+text-align:center;
+}
+
+th{
+background:#4CAF50;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Your Payment History</h2>
+
+<table>
+
+<tr>
+<th>Receipt No</th>
+<th>Fee Type</th>
+<th>Amount</th>
+<th>Date</th>
+</tr>
+
+{% for p in payments %}
+
+<tr>
+<td>{{p[0]}}</td>
+<td>{{p[1]}}</td>
+<td>{{p[2]}}</td>
+<td>{{p[3]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>s
